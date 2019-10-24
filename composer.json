@@ -1,0 +1,26 @@
+{
+  "name": "andysong/laravel-helper",
+  "description": "A console app for helping laravel app.",
+  "keywords": [
+    "laravel",
+    "phpstorm"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "AndySong",
+      "email": "andylauszp@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LaravelHelper\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "symfony/console": "^5.0@dev",
+    "symfony/process": "^5.0@dev"
+  }
+}
