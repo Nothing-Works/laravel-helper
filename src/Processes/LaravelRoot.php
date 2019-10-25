@@ -7,6 +7,11 @@ use LaravelHelper\Exceptions\ProcessFailed;
 class LaravelRoot extends BaseProcess
 {
     /**
+     * @var string
+     */
+    protected $message = 'Checking if it is the root dir';
+
+    /**
      * @var array
      */
     protected $command = ['php', 'artisan'];

@@ -20,7 +20,7 @@
   },
   "minimum-stability": "dev",
   "require": {
-    "symfony/console": "^5.0@dev",
-    "symfony/process": "^5.0@dev"
+    "symfony/process": "^5.0@dev",
+    "symfony/console": "^5.0@dev"
   }
 }

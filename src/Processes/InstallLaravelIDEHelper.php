@@ -1,11 +1,16 @@
 <?php
 
-namespace LaravelHelper\Commands;
+namespace LaravelHelper\Processes;
 
 use LaravelHelper\Processes\BaseProcess;
 
 class InstallLaravelIDEHelper extends BaseProcess
 {
+    /**
+     * @var string
+     */
+    protected $message = 'Installing Laravel Ide helper';
+
     /**
      * @var array
      */

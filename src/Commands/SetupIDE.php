@@ -2,7 +2,10 @@
 
 namespace LaravelHelper\Commands;
 
+use LaravelHelper\Scripts\ModifyComposer;
+use LaravelHelper\Processes\InstallLaravelIDEHelper;
 use LaravelHelper\Processes\LaravelRoot;
+use LaravelHelper\Processes\PublishVendor;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,14 +20,17 @@ class SetupIDE extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        (new LaravelRoot())->run();
-        (new InstallLaravelIDEHelper())->run();
+        // (new LaravelRoot())->run();
+        // (new InstallLaravelIDEHelper())->run();
+        (new PublishVendor())->run();
+        // (new ModifyComposer())->run();
         $output->writeln('done!');
         return 0;
     }
 }
-        // $io = new SymfonyStyle($input, $output);
-        // $io->section('Starting to add helper files');
+// $io = new SymfonyStyle();
+
+// $io->section('Starting to add helper files');
         // $io->progressStart(2);
         // $io->progressAdvance();
         // $io->progressFinish();
