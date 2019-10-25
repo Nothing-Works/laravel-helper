@@ -7,13 +7,17 @@ use LaravelHelper\Processes\InstallLaravelIDEHelper;
 use LaravelHelper\Processes\LaravelRoot;
 use LaravelHelper\Processes\PublishVendor;
 use LaravelHelper\Processes\RemoveVendor;
+use LaravelHelper\Scripts\CreatingRootFiles;
 use LaravelHelper\Scripts\ModifyConfig;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class SetupIDE extends Command
 {
+
+    private $classNames = [LaravelRoot::class, InstallLaravelIDEHelper::class, RemoveVendor::class, PublishVendor::class, ModifyConfig::class,  ModifyComposer::class, CreatingRootFiles::class];
 
     protected function configure()
     {
@@ -22,19 +26,17 @@ class SetupIDE extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // (new LaravelRoot())->run();
-        // (new InstallLaravelIDEHelper())->run();
-        (new RemoveVendor())->run();
-        (new PublishVendor())->run();
-        // (new ModifyComposer())->run();
-        (new ModifyConfig())->run();
-        // $output->writeln('done!');
+        $io = new SymfonyStyle($input, $output);
+        $io->progressStart(count($this->classNames));
+        $count = 1;
+        foreach ($this->classNames as  $value) {
+            $io->progressAdvance($count);
+            $count++;
+            $c = new $value;
+            $io->section($c->message);
+            $c->run();
+        }
+        $io->progressFinish();
         return 0;
     }
 }
-// $io = new SymfonyStyle();
-
-// $io->section('Starting to add helper files');
-        // $io->progressStart(2);
-        // $io->progressAdvance();
-        // $io->progressFinish();
