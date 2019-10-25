@@ -9,12 +9,12 @@ class InstallLaravelIDEHelper extends BaseProcess
     /**
      * @var string
      */
-    protected $message = 'Installing Laravel Ide helper';
+    public $message = 'Installing Laravel Ide helper';
 
     /**
      * @var array
      */
-    protected $command = ['composer', 'require', '--dev', 'barryvdh/laravel-ide-helper'];
+    protected $command = ['composer', 'require', '--dev', 'barryvdh/laravel-ide-helper:dev-master'];
 
     /**
      * @var int

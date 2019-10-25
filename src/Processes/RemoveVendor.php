@@ -4,17 +4,17 @@ namespace LaravelHelper\Processes;
 
 use LaravelHelper\Processes\BaseProcess;
 
-class PublishVendor extends BaseProcess
+class RemoveVendor extends BaseProcess
 {
     /**
      * @var string
      */
-    public $message = 'Publishing Vendor dir';
+    public $message = 'Removing Vendor dir';
 
     /**
      * @var array
      */
-    protected $command = ['php', 'artisan', 'vendor:publish', '--provider=' . 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', '--tag=config'];
+    protected $command = ['rm', '-rf', './config/ide-helper.php'];
 
     /**
      * @return void

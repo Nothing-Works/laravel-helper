@@ -9,14 +9,23 @@ class BaseScript
      */
     protected $filePath = '';
 
-    protected function getJson()
+    /**
+     * @var bool
+     */
+    protected $isJson = false;
+
+    protected function getData()
     {
-        return json_decode(file_get_contents($this->fullPath()), true);
+        $data = file_get_contents($this->fullPath());
+
+        return $this->isJson ? json_decode($data, true) : $data;
     }
 
-    protected function saveJson($data)
+    protected function saveData($data)
     {
-        file_put_contents($this->fullPath(), json_encode($data));
+        $result = $this->isJson ? json_encode($data) : $data;
+
+        file_put_contents($this->fullPath(), $result);
     }
 
     private function fullPath(): string

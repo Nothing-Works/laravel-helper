@@ -6,6 +6,8 @@ use LaravelHelper\Scripts\ModifyComposer;
 use LaravelHelper\Processes\InstallLaravelIDEHelper;
 use LaravelHelper\Processes\LaravelRoot;
 use LaravelHelper\Processes\PublishVendor;
+use LaravelHelper\Processes\RemoveVendor;
+use LaravelHelper\Scripts\ModifyConfig;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,9 +24,11 @@ class SetupIDE extends Command
     {
         // (new LaravelRoot())->run();
         // (new InstallLaravelIDEHelper())->run();
+        (new RemoveVendor())->run();
         (new PublishVendor())->run();
         // (new ModifyComposer())->run();
-        $output->writeln('done!');
+        (new ModifyConfig())->run();
+        // $output->writeln('done!');
         return 0;
     }
 }

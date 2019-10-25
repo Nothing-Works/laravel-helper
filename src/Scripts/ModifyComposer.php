@@ -13,8 +13,12 @@ class ModifyComposer extends BaseScript
     /**
      * @var string
      */
-    protected $message = 'Modifying composer.json file';
+    public $message = 'Modifying composer.json file';
 
+    /**
+     * @var bool
+     */
+    protected $isJson = true;
 
     private $value = [
         "Illuminate\\Foundation\\ComposerScripts::postUpdate",
@@ -25,10 +29,10 @@ class ModifyComposer extends BaseScript
 
     public function run()
     {
-        $data = $this->getJson();
+        $data = $this->getData();
 
         $data['scripts']['post-update-cmd'] = $this->value;
 
-        $this->saveJson($data);
+        $this->saveData($data);
     }
 }

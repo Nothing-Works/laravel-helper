@@ -9,7 +9,7 @@ class LaravelRoot extends BaseProcess
     /**
      * @var string
      */
-    protected $message = 'Checking if it is the root dir';
+    public $message = 'Checking if it is the root dir';
 
     /**
      * @var array
