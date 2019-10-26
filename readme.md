@@ -9,6 +9,6 @@ $ composer global require andysong/laravel-helper
 # How to Use
 
 ```sh
-$ laravelhelper setupIDE // setup everything from scratch
-$ laravelhelper updateIDE // update helper files when you need to
+$ andylaravel setupIDE // setup everything from scratch
+$ andylaravel updateIDE // update helper files when you need to
 ```
