@@ -2,7 +2,6 @@
 
 namespace LaravelHelper\Processes;
 
-use LaravelHelper\Exceptions\ProcessFailed;
 use LaravelHelper\Interfaces\IRunnable;
 
 class LaravelRoot extends BaseProcess implements IRunnable
@@ -21,14 +20,4 @@ class LaravelRoot extends BaseProcess implements IRunnable
      * @var string
      */
     protected $reason = 'It is not the root of Laravel';
-
-    /**
-     * @return void
-     *
-     * @throws ProcessFailed
-     */
-    public function run()
-    {
-        parent::run();
-    }
 }

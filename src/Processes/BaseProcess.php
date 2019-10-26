@@ -3,7 +3,6 @@
 namespace LaravelHelper\Processes;
 
 use Exception;
-use LaravelHelper\Exceptions\ProcessFailed;
 use Symfony\Component\Process\Process;
 
 class BaseProcess
@@ -26,9 +25,9 @@ class BaseProcess
     /**
      * @return void
      *
-     * @throws ProcessFailed|Exception
+     * @throws Exception
      */
-    protected function run()
+    public function run()
     {
         $this->validateCommand();
 

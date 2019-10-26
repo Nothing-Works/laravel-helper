@@ -3,7 +3,6 @@
 namespace LaravelHelper\Processes;
 
 use LaravelHelper\Interfaces\IRunnable;
-use LaravelHelper\Processes\BaseProcess;
 
 class InstallLaravelIDEHelper extends BaseProcess implements IRunnable
 {
@@ -26,14 +25,4 @@ class InstallLaravelIDEHelper extends BaseProcess implements IRunnable
      * @var string
      */
     protected $reason = 'maybe network, maybe time is too short';
-
-    /**
-     * @return void
-     *
-     * @throws ProcessFailed
-     */
-    public function run()
-    {
-        parent::run();
-    }
 }

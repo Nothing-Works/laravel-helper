@@ -2,7 +2,6 @@
 
 namespace LaravelHelper\Processes;
 
-use LaravelHelper\Exceptions\ProcessFailed;
 use LaravelHelper\Interfaces\IRunnable;
 
 class Generate extends BaseProcess implements IRunnable
@@ -16,14 +15,4 @@ class Generate extends BaseProcess implements IRunnable
      * @var array
      */
     protected $command = ['php', 'artisan', 'ide-helper:generate'];
-
-    /**
-     * @return void
-     *
-     * @throws ProcessFailed
-     */
-    public function run()
-    {
-        parent::run();
-    }
 }
