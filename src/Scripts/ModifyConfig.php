@@ -6,19 +6,10 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class ModifyConfig extends BaseScript implements IRunnable
 {
-    /**
-     * @var string
-     */
     protected $filePath = '/config/ide-helper.php';
 
-    /**
-     * @var string
-     */
     public $message = 'Modifying ide-helper.php file';
 
-    /**
-     * @var array
-     */
     private $insertArray = [
         '/(?<=\'magic\' => array)\(\)/mi' => "(/*
                 * @see https://laravel.com/docs/5.2/authentication
@@ -70,30 +61,15 @@ class ModifyConfig extends BaseScript implements IRunnable
         ],',
     ];
 
-    /**
-     * @var string
-     */
     private $updateBool = '$1 true,';
 
-    /**
-     * @var string
-     */
-    private $data = '';
-
-    /**
-     * @var array
-     */
     private $updateKeys = ['include_factory_builders', 'include_fluent', 'write_eloquent_model_mixins', 'include_helpers', 'include_class_docblocks'];
 
-    public function run()
+    protected function prepare()
     {
-        $this->data = $this->getData();
-
         $this->update();
 
         $this->insert();
-
-        $this->saveData($this->data);
     }
 
     private function insert()

@@ -6,19 +6,10 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class ModifyComposer extends BaseScript implements IRunnable
 {
-    /**
-     * @var string
-     */
     protected $filePath = '/composer.json';
 
-    /**
-     * @var string
-     */
     public $message = 'Modifying composer.json file';
 
-    /**
-     * @var bool
-     */
     protected $isJson = true;
 
     private $value = [
@@ -29,12 +20,8 @@ class ModifyComposer extends BaseScript implements IRunnable
         "@php artisan ide-helper:models -N"
     ];
 
-    public function run()
+    protected function prepare()
     {
-        $data = $this->getData();
-
-        $data['scripts']['post-update-cmd'] = $this->value;
-
-        $this->saveData($data);
+        $this->data['scripts']['post-update-cmd'] = $this->value;
     }
 }

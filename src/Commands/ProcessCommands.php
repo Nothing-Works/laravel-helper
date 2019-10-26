@@ -22,6 +22,7 @@ class ProcessCommands
     {
         $this->processBar->start();
         $this->runAll();
+        $this->print('All Done !!!');
     }
 
     private function runAll()

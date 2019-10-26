@@ -4,26 +4,51 @@ namespace LaravelHelper\Scripts;
 
 class BaseScript
 {
-    /**
-     * @var string
-     */
     protected $filePath = '';
 
-    /**
-     * @var bool
-     */
     protected $isJson = false;
 
-    protected function getData()
-    {
-        $data = file_get_contents($this->fullPath());
+    protected $data = null;
 
-        return $this->isJson ? json_decode($data, true) : $data;
+    public function run()
+    {
+        $this->getData();
+
+        $this->prepare();
+
+        $this->saveData();
     }
 
-    protected function saveData($data)
+    protected function prepare()
     {
-        $result = $this->isJson ? json_encode($data) : $data;
+        throw new LogicException('You must override the execute() method in the concrete command class.');
+    }
+
+    protected function deleteIfExists()
+    {
+        if (file_exists($this->fullPath()))
+            unlink($this->fullPath());
+    }
+
+    protected function createFile($value)
+    {
+        $fp = fopen($this->fullPath(), 'wb');
+
+        fwrite($fp, $value);
+
+        fclose($fp);
+    }
+
+    private function getData()
+    {
+        $raw = file_get_contents($this->fullPath());
+
+        $this->data = $this->isJson ? json_decode($raw, true) : $raw;
+    }
+
+    private function saveData()
+    {
+        $result = $this->isJson ? json_encode($this->data) : $this->data;
 
         file_put_contents($this->fullPath(), $result);
     }

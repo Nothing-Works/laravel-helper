@@ -6,14 +6,8 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class CreatingRootFiles extends BaseScript implements IRunnable
 {
-    /**
-     * @var string
-     */
     public $message = 'Creating root files';
 
-    /**
-     * @var array
-     */
     private $files = [
         '/IDEAutoCompleteHelp.php' => '<?php
 
@@ -187,26 +181,11 @@ class Redis
     public function run()
     {
         foreach ($this->files as $key => $value) {
-            $file = getcwd() . $key;
+            $this->filePath = $key;
 
-            $this->deleteIfExists($file);
+            $this->deleteIfExists();
 
-            $this->createFile($file, $value);
+            $this->createFile($value);
         }
-    }
-
-    private function deleteIfExists($file)
-    {
-        if (file_exists($file))
-            unlink($file);
-    }
-
-    private function createFile($file, $value)
-    {
-        $fp = fopen($file, 'wb');
-
-        fwrite($fp, $value);
-
-        fclose($fp);
     }
 }
