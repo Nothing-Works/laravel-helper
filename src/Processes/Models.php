@@ -2,20 +2,20 @@
 
 namespace LaravelHelper\Processes;
 
+use LaravelHelper\Exceptions\ProcessFailed;
 use LaravelHelper\Interfaces\IRunnable;
-use LaravelHelper\Processes\BaseProcess;
 
-class RemoveVendor extends BaseProcess implements IRunnable
+class Models extends BaseProcess implements IRunnable
 {
     /**
      * @var string
      */
-    public $message = 'Removing Vendor dir';
+    public $message = 'Model files..';
 
     /**
      * @var array
      */
-    protected $command = ['rm', '-rf', './config/ide-helper.php'];
+    protected $command = ['php', 'artisan', 'ide-helper:models', '-N'];
 
     /**
      * @return void

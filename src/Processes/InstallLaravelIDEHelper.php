@@ -2,9 +2,10 @@
 
 namespace LaravelHelper\Processes;
 
+use LaravelHelper\Interfaces\IRunnable;
 use LaravelHelper\Processes\BaseProcess;
 
-class InstallLaravelIDEHelper extends BaseProcess
+class InstallLaravelIDEHelper extends BaseProcess implements IRunnable
 {
     /**
      * @var string

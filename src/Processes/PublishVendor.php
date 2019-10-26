@@ -2,9 +2,10 @@
 
 namespace LaravelHelper\Processes;
 
+use LaravelHelper\Interfaces\IRunnable;
 use LaravelHelper\Processes\BaseProcess;
 
-class PublishVendor extends BaseProcess
+class PublishVendor extends BaseProcess implements IRunnable
 {
     /**
      * @var string

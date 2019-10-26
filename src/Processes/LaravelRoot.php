@@ -3,8 +3,9 @@
 namespace LaravelHelper\Processes;
 
 use LaravelHelper\Exceptions\ProcessFailed;
+use LaravelHelper\Interfaces\IRunnable;
 
-class LaravelRoot extends BaseProcess
+class LaravelRoot extends BaseProcess implements IRunnable
 {
     /**
      * @var string

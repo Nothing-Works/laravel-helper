@@ -2,7 +2,9 @@
 
 namespace LaravelHelper\Scripts;
 
-class CreatingRootFiles extends BaseScript
+use LaravelHelper\Interfaces\IRunnable;
+
+class CreatingRootFiles extends BaseScript implements IRunnable
 {
     /**
      * @var string

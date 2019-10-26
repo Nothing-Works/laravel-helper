@@ -2,8 +2,9 @@
 
 namespace LaravelHelper\Scripts;
 
+use LaravelHelper\Interfaces\IRunnable;
 
-class ModifyComposer extends BaseScript
+class ModifyComposer extends BaseScript implements IRunnable
 {
     /**
      * @var string
@@ -24,7 +25,8 @@ class ModifyComposer extends BaseScript
         "Illuminate\\Foundation\\ComposerScripts::postUpdate",
         "@php artisan clear-compiled",
         "@php artisan ide-helper:generate",
-        "@php artisan ide-helper:meta"
+        "@php artisan ide-helper:meta",
+        "@php artisan ide-helper:models -N"
     ];
 
     public function run()

@@ -4,10 +4,11 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use LaravelHelper\Commands\SetupIDE;
+use LaravelHelper\Commands\UpdateIDE;
 use Symfony\Component\Console\Application;
 
 $app = new Application('Laravel Helper', '0.1');
 
-$app->add(new SetupIDE());
+$app->addCommands([new SetupIDE(), new UpdateIDE()]);
 
 $app->run();

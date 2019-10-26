@@ -2,7 +2,9 @@
 
 namespace LaravelHelper\Scripts;
 
-class ModifyConfig extends BaseScript
+use LaravelHelper\Interfaces\IRunnable;
+
+class ModifyConfig extends BaseScript implements IRunnable
 {
     /**
      * @var string
