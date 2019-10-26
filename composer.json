@@ -18,7 +18,6 @@
       "LaravelHelper\\": "src/"
     }
   },
-  "minimum-stability": "dev",
   "require": {
     "symfony/process": "^5.0@dev",
     "symfony/console": "^5.0@dev"
