@@ -19,7 +19,7 @@
     }
   },
   "require": {
-    "symfony/process": "^5.0@dev",
-    "symfony/console": "^5.0@dev"
+    "symfony/process": "^4.3.5",
+    "symfony/console": "^4.3.5"
   }
 }

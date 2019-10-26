@@ -22,6 +22,5 @@ class UpdateIDE extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         (new ProcessCommands($output, $this->allClasses))->process();
-        return 0;
     }
 }
