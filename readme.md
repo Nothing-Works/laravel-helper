@@ -3,7 +3,7 @@
 # Install
 
 ```sh
-$ composer global require andysong/laravel-helper:dev-master
+$ composer global require andysong/laravel-helper
 ```
 
 # How to Use
