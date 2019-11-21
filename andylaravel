@@ -11,7 +11,7 @@ use LaravelHelper\Commands\SetupIDE;
 use LaravelHelper\Commands\UpdateIDE;
 use Symfony\Component\Console\Application;
 
-$app = new Application('Laravel Helper', '1.0.0');
+$app = new Application('Laravel Helper', 'v1.0.0');
 
 $app->addCommands([new SetupIDE(), new UpdateIDE()]);
 
