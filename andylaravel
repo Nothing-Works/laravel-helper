@@ -1,17 +1,17 @@
 #!/usr/bin/env php
 <?php
 
-if (file_exists(__DIR__ . '/../../autoload.php')) {
-    require __DIR__ . '/../../autoload.php';
+if (file_exists(__DIR__.'/../../autoload.php')) {
+    require __DIR__.'/../../autoload.php';
 } else {
-    require __DIR__ . '/vendor/autoload.php';
+    require __DIR__.'/vendor/autoload.php';
 }
 
 use LaravelHelper\Commands\SetupIDE;
 use LaravelHelper\Commands\UpdateIDE;
 use Symfony\Component\Console\Application;
 
-$app = new Application('Laravel Helper', '0.1');
+$app = new Application('Laravel Helper', '1.0.0');
 
 $app->addCommands([new SetupIDE(), new UpdateIDE()]);
 
