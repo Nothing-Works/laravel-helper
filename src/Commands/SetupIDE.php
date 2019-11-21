@@ -4,7 +4,6 @@ namespace LaravelHelper\Commands;
 
 use LaravelHelper\Processes\ClearCompiled;
 use LaravelHelper\Processes\Generate;
-use LaravelHelper\Scripts\ModifyComposer;
 use LaravelHelper\Processes\InstallLaravelIDEHelper;
 use LaravelHelper\Processes\LaravelRoot;
 use LaravelHelper\Processes\Meta;
@@ -12,6 +11,7 @@ use LaravelHelper\Processes\Models;
 use LaravelHelper\Processes\PublishVendor;
 use LaravelHelper\Processes\RemoveVendor;
 use LaravelHelper\Scripts\CreatingRootFiles;
+use LaravelHelper\Scripts\ModifyComposer;
 use LaravelHelper\Scripts\ModifyConfig;
 use LaravelHelper\Scripts\ResetComposer;
 use Symfony\Component\Console\Command\Command;
@@ -30,5 +30,7 @@ class SetupIDE extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         (new ProcessCommands($output, $this->allClasses))->process();
+
+        return 0;
     }
 }

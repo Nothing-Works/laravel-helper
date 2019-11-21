@@ -19,8 +19,8 @@
     }
   },
   "require": {
-    "symfony/console": "^4.3",
-    "symfony/process": "^4.3"
+    "symfony/console": "^5.0.0",
+    "symfony/process": "^5.0.0"
   },
   "bin": [
     "andylaravel"

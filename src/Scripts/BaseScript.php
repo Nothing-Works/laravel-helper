@@ -26,8 +26,9 @@ class BaseScript
 
     protected function deleteIfExists()
     {
-        if (file_exists($this->fullPath()))
+        if (file_exists($this->fullPath())) {
             unlink($this->fullPath());
+        }
     }
 
     protected function createFile($value)
@@ -55,9 +56,10 @@ class BaseScript
 
     private function fullPath(): string
     {
-        if (empty($this->filePath))
+        if (empty($this->filePath)) {
             throw new Exception('You need to provide the working file', 1);
+        }
 
-        return getcwd() . $this->filePath;
+        return getcwd().$this->filePath;
     }
 }
