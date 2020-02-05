@@ -6,13 +6,7 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class ClearCompiled extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Clear Compiled files';
+    public string $message = 'Clear Compiled files';
 
-    /**
-     * @var array
-     */
-    protected $command = ['php', 'artisan', 'clear-compiled'];
+    protected array $command = ['php', 'artisan', 'clear-compiled'];
 }

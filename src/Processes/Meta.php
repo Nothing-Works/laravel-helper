@@ -6,13 +6,7 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class Meta extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Meta files..';
+    public string $message = 'Meta files..';
 
-    /**
-     * @var array
-     */
-    protected $command = ['php', 'artisan', 'ide-helper:meta'];
+    protected array $command = ['php', 'artisan', 'ide-helper:meta'];
 }

@@ -7,34 +7,21 @@ use Symfony\Component\Process\Process;
 
 class BaseProcess
 {
-    /**
-     * @var array
-     */
-    protected $command = [];
+    protected array $command = [];
 
-    /**
-     * @var int
-     */
-    protected $timeOut = 60;
+    protected int $timeOut = 60;
 
-    /**
-     * @var string
-     */
-    protected  $reason = 'not sure why';
+    protected string $reason = 'not sure why';
 
-    /**
-     * @return void
-     *
-     * @throws Exception
-     */
-    public function run()
+    public function run(): void
     {
         $this->validateCommand();
 
         $process = $this->runProcess();
 
-        if ($this->processFailed($process))
+        if ($this->processFailed($process)) {
             throw new Exception($this->reason, 1);
+        }
     }
 
     private function processFailed(Process $process): bool
@@ -63,7 +50,8 @@ class BaseProcess
      */
     private function validateCommand()
     {
-        if (empty($this->command))
+        if (empty($this->command)) {
             throw new Exception('You need to pass some command', 1);
+        }
     }
 }

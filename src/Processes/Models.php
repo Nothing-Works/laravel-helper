@@ -6,13 +6,7 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class Models extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Model files..';
+    public string $message = 'Model files..';
 
-    /**
-     * @var array
-     */
-    protected $command = ['php', 'artisan', 'ide-helper:models', '-N'];
+    protected array $command = ['php', 'artisan', 'ide-helper:models', '-N'];
 }

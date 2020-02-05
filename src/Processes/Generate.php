@@ -6,13 +6,7 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class Generate extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Generating files..';
+    public string $message = 'Generating files..';
 
-    /**
-     * @var array
-     */
-    protected $command = ['php', 'artisan', 'ide-helper:generate'];
+    protected array $command = ['php', 'artisan', 'ide-helper:generate'];
 }

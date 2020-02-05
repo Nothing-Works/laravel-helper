@@ -6,23 +6,11 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class InstallLaravelIDEHelper extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Installing Laravel Ide helper';
+    public string $message = 'Installing Laravel Ide helper';
 
-    /**
-     * @var array
-     */
-    protected $command = ['composer', 'require', '--dev', 'barryvdh/laravel-ide-helper:dev-master'];
+    protected array $command = ['composer', 'require', '--dev', 'barryvdh/laravel-ide-helper:dev-master'];
 
-    /**
-     * @var int
-     */
-    protected $timeOut = 3600;
+    protected int $timeOut = 3600;
 
-    /**
-     * @var string
-     */
-    protected $reason = 'maybe network, maybe time is too short';
+    protected string $reason = 'maybe network, maybe time is too short';
 }

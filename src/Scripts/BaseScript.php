@@ -2,6 +2,9 @@
 
 namespace LaravelHelper\Scripts;
 
+use Exception;
+use Symfony\Component\Console\Exception\LogicException;
+
 class BaseScript
 {
     protected $filePath = '';

@@ -6,18 +6,9 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class LaravelRoot extends BaseProcess implements IRunnable
 {
-    /**
-     * @var string
-     */
-    public $message = 'Checking if it is the root dir';
+    public string $message = 'Checking if it is the root dir';
 
-    /**
-     * @var array
-     */
-    protected $command = ['php', 'artisan'];
+    protected array $command = ['php', 'artisan'];
 
-    /**
-     * @var string
-     */
-    protected $reason = 'It is not the root of Laravel';
+    protected string $reason = 'It is not the root of Laravel';
 }

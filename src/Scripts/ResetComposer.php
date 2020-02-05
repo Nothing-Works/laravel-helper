@@ -14,7 +14,8 @@ class ResetComposer extends BaseScript implements IRunnable
 
     protected function prepare()
     {
-        if (isset($this->data['scripts']['post-update-cmd']))
+        if (isset($this->data['scripts']['post-update-cmd'])) {
             unset($this->data['scripts']['post-update-cmd']);
+        }
     }
 }
