@@ -12,3 +12,7 @@ $ composer global require andysong/laravel-helper
 $ andylaravel setupIDE // setup everything from scratch
 $ andylaravel updateIDE // update helper files when you need to
 ```
+
+# Requirement
+
+You need at least `php 7.4`

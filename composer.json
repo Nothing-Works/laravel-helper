@@ -3,7 +3,10 @@
   "description": "A console app for helping laravel app.",
   "keywords": [
     "laravel",
-    "phpstorm"
+    "phpstorm",
+    "Vs Code",
+    "IDE",
+    "laravel-ide-helper"
   ],
   "type": "library",
   "license": "MIT",
@@ -19,6 +22,7 @@
     }
   },
   "require": {
+    "php": "^7.4",
     "symfony/process": "^5.0",
     "symfony/console": "^5.0"
   },
