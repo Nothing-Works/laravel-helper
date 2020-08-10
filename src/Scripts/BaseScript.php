@@ -11,7 +11,7 @@ class BaseScript
 
     protected $isJson = false;
 
-    protected $data = null;
+    protected $data;
 
     public function run()
     {
@@ -63,6 +63,6 @@ class BaseScript
             throw new Exception('You need to provide the working file', 1);
         }
 
-        return getcwd() . $this->filePath;
+        return getcwd().$this->filePath;
     }
 }

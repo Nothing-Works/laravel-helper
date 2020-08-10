@@ -175,7 +175,7 @@ namespace Illuminate\Support\Facades;
 class Redis
 {
 
-}'
+}',
     ];
 
     public function run()

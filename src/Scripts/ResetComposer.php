@@ -6,9 +6,8 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class ResetComposer extends BaseScript implements IRunnable
 {
-    protected $filePath = '/composer.json';
-
     public $message = 'Resetting composer.json file';
+    protected $filePath = '/composer.json';
 
     protected $isJson = true;
 

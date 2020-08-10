@@ -6,33 +6,32 @@ use LaravelHelper\Interfaces\IRunnable;
 
 class ModifyConfig extends BaseScript implements IRunnable
 {
-    protected $filePath = '/config/ide-helper.php';
-
     public $message = 'Modifying ide-helper.php file';
+    protected $filePath = '/config/ide-helper.php';
 
     private $insertArray = [
         '/(?<=\'magic\' => array)\(\)/mi' => "(/*
                 * @see https://laravel.com/docs/5.2/authentication
                 * @see https://laravel.com/api/5.2/Illuminate/Auth.html
-                * @see \Illuminate\Auth\AuthServiceProvider
-                * @see \Illuminate\Auth\AuthManager::__call
-                * @see \Illuminate\Contracts\Auth\Guard
-                * @see \Illuminate\Contracts\Auth\StatefulGuard
+                * @see \\Illuminate\\Auth\\AuthServiceProvider
+                * @see \\Illuminate\\Auth\\AuthManager::__call
+                * @see \\Illuminate\\Contracts\\Auth\\Guard
+                * @see \\Illuminate\\Contracts\\Auth\\StatefulGuard
                 */
             'Auth' => [
-                'check' => 'Illuminate\Contracts\Auth\Guard::check',
-                'guest' => 'Illuminate\Contracts\Auth\Guard::guest',
-                'user' => 'Illuminate\Contracts\Auth\Guard::user',
-                'id' => 'Illuminate\Contracts\Auth\Guard::id',
-                'validate' => 'Illuminate\Contracts\Auth\Guard::validate',
-                'setUser' => 'Illuminate\Contracts\Auth\Guard::setUser',
-                'attempt' => 'Illuminate\Contracts\Auth\StatefulGuard::attempt',
-                'once' => 'Illuminate\Contracts\Auth\StatefulGuard::once',
-                'login' => 'Illuminate\Contracts\Auth\StatefulGuard::login',
-                'loginUsingId' => 'Illuminate\Contracts\Auth\StatefulGuard::loginUsingId',
-                'onceUsingId' => 'Illuminate\Contracts\Auth\StatefulGuard::onceUsingId',
-                'viaRemember' => 'Illuminate\Contracts\Auth\StatefulGuard::viaRemember',
-                'logout' => 'Illuminate\Contracts\Auth\StatefulGuard::logout',
+                'check' => 'Illuminate\\Contracts\\Auth\\Guard::check',
+                'guest' => 'Illuminate\\Contracts\\Auth\\Guard::guest',
+                'user' => 'Illuminate\\Contracts\\Auth\\Guard::user',
+                'id' => 'Illuminate\\Contracts\\Auth\\Guard::id',
+                'validate' => 'Illuminate\\Contracts\\Auth\\Guard::validate',
+                'setUser' => 'Illuminate\\Contracts\\Auth\\Guard::setUser',
+                'attempt' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::attempt',
+                'once' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::once',
+                'login' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::login',
+                'loginUsingId' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::loginUsingId',
+                'onceUsingId' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::onceUsingId',
+                'viaRemember' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::viaRemember',
+                'logout' => 'Illuminate\\Contracts\\Auth\\StatefulGuard::logout',
             ],
         )",
         '/(?<=\'Session\' => array\(\'Illuminate\\\\Session\\\\Store\'\),)/mi' => '
@@ -74,14 +73,16 @@ class ModifyConfig extends BaseScript implements IRunnable
 
     private function insert()
     {
-        foreach ($this->insertArray as $key => $value)
+        foreach ($this->insertArray as $key => $value) {
             $this->data = preg_replace($key, $value, $this->data);
+        }
     }
 
     private function update()
     {
-        foreach ($this->keyPatterns() as $pattern)
+        foreach ($this->keyPatterns() as $pattern) {
             $this->data = preg_replace($pattern, $this->updateBool, $this->data);
+        }
     }
 
     private function keyPatterns(): array

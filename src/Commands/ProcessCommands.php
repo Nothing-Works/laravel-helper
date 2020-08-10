@@ -27,8 +27,9 @@ class ProcessCommands
 
     private function runAll()
     {
-        foreach ($this->allClasses as  $class)
+        foreach ($this->allClasses as  $class) {
             $this->runOne($class);
+        }
     }
 
     private function runOne($class)
@@ -43,7 +44,7 @@ class ProcessCommands
     {
         $this->output->writeln([
             '',
-            $message
+            $message,
         ]);
     }
 }
