@@ -52,7 +52,7 @@ class BaseScript
 
     private function saveData()
     {
-        $result = $this->isJson ? json_encode($this->data) : $this->data;
+        $result = $this->isJson ? json_encode($this->data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) : $this->data;
 
         file_put_contents($this->fullPath(), $result);
     }
@@ -63,6 +63,6 @@ class BaseScript
             throw new Exception('You need to provide the working file', 1);
         }
 
-        return getcwd().$this->filePath;
+        return getcwd() . $this->filePath;
     }
 }
