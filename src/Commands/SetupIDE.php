@@ -2,6 +2,7 @@
 
 namespace LaravelHelper\Commands;
 
+use LaravelHelper\Processes\ClearCache;
 use LaravelHelper\Processes\ClearCompiled;
 use LaravelHelper\Processes\Generate;
 use LaravelHelper\Processes\InstallLaravelIDEHelper;
@@ -20,7 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SetupIDE extends Command
 {
-    private $allClasses = [LaravelRoot::class, ResetComposer::class, InstallLaravelIDEHelper::class, RemoveVendor::class, PublishVendor::class, ModifyConfig::class,  ModifyComposer::class, CreatingRootFiles::class, ClearCompiled::class, Generate::class, Meta::class, Models::class];
+    private $allClasses = [LaravelRoot::class, ClearCache::class, ResetComposer::class, InstallLaravelIDEHelper::class, RemoveVendor::class, PublishVendor::class, ModifyConfig::class,  ModifyComposer::class, CreatingRootFiles::class, ClearCompiled::class, Generate::class, Meta::class, Models::class];
 
     protected function configure()
     {

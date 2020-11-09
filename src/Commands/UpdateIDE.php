@@ -2,6 +2,7 @@
 
 namespace LaravelHelper\Commands;
 
+use LaravelHelper\Processes\ClearCache;
 use LaravelHelper\Processes\ClearCompiled;
 use LaravelHelper\Processes\Generate;
 use LaravelHelper\Processes\Meta;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class UpdateIDE extends Command
 {
-    private $allClasses = [ClearCompiled::class, Generate::class, Meta::class, Models::class];
+    private $allClasses = [ClearCache::class, ClearCompiled::class, Generate::class, Meta::class, Models::class];
 
     protected function configure()
     {
