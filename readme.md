@@ -15,4 +15,4 @@ $ andylaravel updateIDE // update helper files when you need to
 
 # Requirement
 
-You need at least `php 7.4`
+You need at least `php 7.4` or `php 8.0`
